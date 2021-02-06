@@ -44,7 +44,7 @@ const Pharmacies = () => {
         try {
           // const proxy = 'https://cors-anywhere.herokuapp.com'
           const responseData = await sendRequest(
-            `/https://farmanet.minsal.cl/maps/index.php/ws/getLocalesRegion?id_region=7`
+            `https://farmanet.minsal.cl/maps/index.php/ws/getLocalesRegion?id_region=7`
           )
 
           const wit = new Set()
