@@ -6,6 +6,7 @@ import Button from '../../shared/components/FormElements/Button'
 import { data as mockData } from './../../shared/mock/data'
 import './PharmacyList.sass'
 import { eachWord } from '../../shared/util/firstUppercase'
+import { getCoordsForAddress } from '../../shared/util/location'
 
 const PharmacyList = (props) => {
   const handleLoadFromMock = () => {
@@ -34,10 +35,18 @@ const PharmacyList = (props) => {
     <ul className='pharmacy-list'>
       {props.items.map((pharmacy, idx) => {
         const split = (str) => (str.length > 1 ? str.split(' ')[0] : str)
+        const parse = (str) => parseFloat(str)
+        const nan = (str) => isNaN(str)
+
+        // if direction does not exist, return default location
+        const location = (str, ret) =>
+          nan(parse(str)) ? parse(ret) : parse(str)
+
         const coordinates = {
-          lng: parseFloat(pharmacy.local_lng),
-          lat: parseFloat(pharmacy.local_lat)
+          lng: location(pharmacy.local_lng, -70.645348),
+          lat: location(pharmacy.local_lat, -33.459229)
         }
+
         return (
           <PharmacyItem
             key={`${pharmacy.local_nombre}_00${idx + 1}`}
