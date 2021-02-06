@@ -1,6 +1,23 @@
-# Getting Started with Create React App
+<h1>Pharmacies APP</h1>
+ 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<code>If there is an problem with the endpoint or anything like that, you can load from mock clicking in the button that says "reload from mock"</code>
+
+<Button>
+  reload from mock
+</Button>
+
+## BUILD and RUN
+`docker build -f Dockerfile.prod -t pharmacies:app .` </br >
+`docker run -it --rm -p 8080:80 pharmacies:app`
+
+## BUILD using docker-compose (pros and develop)
+`docker-compose up -d --build` </br >
+`docker-compose -f docker-compose.prod.yml up -d --build`
+
+## to STOP
+`docker-compose stop`
+</br >
 
 ## Available Scripts
 
@@ -14,7 +31,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
+### `yarn test` [Tests not available]
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
@@ -69,8 +86,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-
-## docker build -f Dockerfile.prod -t pharmacies:app .
-## docker run -it --rm -p 1337:80 pharmacies:app
 
 [hello_world](https://mherman.org/blog/dockerizing-a-react-app/)

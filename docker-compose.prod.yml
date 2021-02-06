@@ -2,8 +2,8 @@ version: '3.7'
 
 services:
 
-  pharmacies-app:
-    container_name: pharmacies-app
+  pharmacies:
+    container_name: pharmacies
     build:
       context: .
       dockerfile: Dockerfile.prod
