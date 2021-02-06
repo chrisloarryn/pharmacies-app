@@ -50,10 +50,14 @@ const Pharmacies = () => {
               item.local_nombre === local.value.toUpperCase()
           )
           setLoadedPlaces(data)
-        } catch (err) {}
+        } catch (err) {
+          setLoadedPlaces([])
+        }
       }
       fetchPlaces()
-    } catch (err) {}
+    } catch (err) {
+      setLoadedPlaces([])
+    }
   }
 
   return (
