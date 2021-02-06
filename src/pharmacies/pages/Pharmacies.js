@@ -33,23 +33,17 @@ const Pharmacies = () => {
     )
   }
 
+  const { commune, local } = formState.inputs
+
   const pharmacySubmitHandler = async (event) => {
     event.preventDefault()
     try {
-      const { commune, local } = formState.inputs
-      const formData = new FormData()
-      formData.append('commune', commune.value)
-      formData.append('local', local.value)
       const fetchPlaces = async () => {
         try {
           // const proxy = 'https://cors-anywhere.herokuapp.com'
           const responseData = await sendRequest(
             `https://farmanet.minsal.cl/maps/index.php/ws/getLocalesRegion?id_region=7`
           )
-
-          const wit = new Set()
-          responseData.map((i) => wit.add(i.local_nombre.trim()))
-          console.log(wit)
           const data = responseData.filter(
             (item) =>
               item.comuna_nombre === commune.value.toUpperCase() &&
@@ -63,7 +57,7 @@ const Pharmacies = () => {
   }
 
   return (
-    <React.Fragment>
+    <>
       <ErrorModal error={error} onClear={clearError} />
       <div className='pharmacy-list center'>
         <Card style={{ width: '100%' }}>
@@ -99,12 +93,16 @@ const Pharmacies = () => {
       {!isLoading && loadedPlaces && (
         <div>
           <PharmacyList
+            disabled={!formState.isValid}
+            commune={commune}
+            local={local}
+            setLoadedPlaces={setLoadedPlaces}
             items={loadedPlaces}
             onDeletePharmacy={placeDeletedHandler}
           />
         </div>
       )}
-    </React.Fragment>
+    </>
   )
 }
 

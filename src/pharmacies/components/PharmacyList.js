@@ -3,16 +3,28 @@ import React from 'react'
 import Card from '../../shared/components/UIElements/Card'
 import PharmacyItem from './PharmacyItem'
 import Button from '../../shared/components/FormElements/Button'
+import { data as mockData } from './../../shared/mock/data'
 import './PharmacyList.sass'
 import { eachWord } from '../../shared/util/firstUppercase'
 
 const PharmacyList = (props) => {
+  const handleLoadFromMock = () => {
+    const data = mockData.filter(
+      (item) =>
+        item.comuna_nombre === props.commune.value.toUpperCase() &&
+        item.local_nombre === props.local.value.toUpperCase()
+    )
+    props.setLoadedPlaces(data)
+  }
+
   if (props.items.length === 0) {
     return (
       <div style={{ width: '100%' }} className='pharmacy-list center'>
         <Card style={{ width: '100%' }}>
           <h2>No pharmacies found.</h2>
-          <Button to='/pharmacies/new'>reload?</Button>
+          <Button to='' disabled={props.disabled} onClick={handleLoadFromMock}>
+            reload from mock
+          </Button>
         </Card>
       </div>
     )

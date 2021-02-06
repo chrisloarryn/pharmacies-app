@@ -18,7 +18,7 @@ const PharmacyItem = (props) => {
   const closeMapHandler = () => setShowMap(false)
 
   return (
-    <React.Fragment>
+    <>
       <ErrorModal error={error} onClear={clearError} />
       <Modal
         show={showMap}
@@ -59,7 +59,7 @@ const PharmacyItem = (props) => {
           </div>
         </Card>
       </li>
-    </React.Fragment>
+    </>
   )
 }
 
