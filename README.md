@@ -70,4 +70,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
+## docker build -f Dockerfile.prod -t pharmacies:app .
+## docker run -it --rm -p 1337:80 pharmacies:app
+
 [hello_world](https://mherman.org/blog/dockerizing-a-react-app/)
