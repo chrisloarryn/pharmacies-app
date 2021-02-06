@@ -42,9 +42,9 @@ const Pharmacies = () => {
       formData.append('local', local.value)
       const fetchPlaces = async () => {
         try {
-          const proxy = 'https://cors-anywhere.herokuapp.com'
+          // const proxy = 'https://cors-anywhere.herokuapp.com'
           const responseData = await sendRequest(
-            `${proxy}/https://farmanet.minsal.cl/maps/index.php/ws/getLocalesRegion?id_region=7`
+            `/https://farmanet.minsal.cl/maps/index.php/ws/getLocalesRegion?id_region=7`
           )
 
           const wit = new Set()
