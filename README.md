@@ -7,6 +7,9 @@
   reload from mock
 </Button>
 
+## Install dependencies and Run
+`npm install && npm start`
+
 ## BUILD and RUN
 `docker build -f Dockerfile.prod -t pharmacies:app .` </br >
 `docker run -it --rm -p 8080:80 pharmacies:app`
