@@ -6,7 +6,6 @@ import Button from '../../shared/components/FormElements/Button'
 import { data as mockData } from './../../shared/mock/data'
 import './PharmacyList.sass'
 import { eachWord } from '../../shared/util/firstUppercase'
-import { getCoordsForAddress } from '../../shared/util/location'
 
 const PharmacyList = (props) => {
   const handleLoadFromMock = () => {

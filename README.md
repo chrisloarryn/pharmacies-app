@@ -14,7 +14,7 @@
 `docker build -f Dockerfile.prod -t pharmacies:app .` </br >
 `docker run -it --rm -p 8080:80 pharmacies:app`
 
-## BUILD using docker-compose (pros and develop)
+## BUILD using docker-compose (prod and develop)
 `docker-compose up -d --build` </br >
 `docker-compose -f docker-compose.prod.yml up -d --build`
 
